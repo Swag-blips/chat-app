@@ -5,6 +5,7 @@ import messageRoutes from "./routes/message.route.js";
 import userRoutes from "./routes/user.route.js";
 import connectMongoDb from "./db/connectMongoDb.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 6000;
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
