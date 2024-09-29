@@ -8,7 +8,7 @@ export const getUsersForSidebar = async (req, res) => {
       _id: { $ne: loggedInUserId },
     }).select("-password");
 
-
+    console.log(filteredusers);
     return res.status(200).json(filteredusers);
   } catch (error) {
     console.log(`error in getUsersForSidebar ${error.message}`);

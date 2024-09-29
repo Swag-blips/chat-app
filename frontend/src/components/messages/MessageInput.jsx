@@ -7,6 +7,7 @@ const MessageInput = () => {
 
   const { loading, sendMessage } = useSendMessage();
   const handleSubmit = async (e) => {
+    console.log("function called!");
     e.preventDefault();
     if (!message) {
       return;
@@ -23,17 +24,18 @@ const MessageInput = () => {
           onChange={(e) => setMessage(e.target.value)}
           className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white"
         />
+
+        <button
+          type="submit"
+          className="absolute inset-y-0 end-0 flex items-center pe-3"
+        >
+          {loading ? (
+            <span className="loading loading-spinner mx-auto"></span>
+          ) : (
+            <BsSend />
+          )}
+        </button>
       </div>
-      <button
-        type="submit"
-        className="absolute inset-y-0 end-0 flex items-center pe-3"
-      >
-        {loading ? (
-          <span className="loading loading-spinner mx-auto"></span>
-        ) : (
-          <BsSend />
-        )}
-      </button>
     </form>
   );
 };

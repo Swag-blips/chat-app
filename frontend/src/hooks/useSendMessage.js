@@ -7,8 +7,9 @@ const useSendMessage = () => {
   const { messages, setMessages, selectedConversation } = useConversation();
 
   const sendMessage = async (message) => {
-    setLoading(true);
+    console.log("hook function called");
     try {
+      setLoading(true);
       const res = await fetch(
         `http://localhost:5000/api/messages/send/${selectedConversation._id}`,
         {
@@ -16,11 +17,13 @@ const useSendMessage = () => {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({ message }),
         }
       );
 
       const data = await res.json();
+      console.log(data);
       if (data.error) throw new Error(data.error);
       setMessages([...messages, data]);
     } catch (error) {

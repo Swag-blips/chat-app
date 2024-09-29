@@ -6,6 +6,7 @@ import useConversation from "../../store/useConversations";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
+  console.log(selectedConversation);
 
   useEffect(() => {
     return () => setSelectedConversation(null);
