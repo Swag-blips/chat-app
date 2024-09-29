@@ -1,7 +1,12 @@
+import Login from "./pages/login/Login";
+import SignUp from "./pages/signup/SignUp";
+
 function App() {
   return (
     <>
-      <button className="btn btn-ghost">Ghost</button>
+      <div className="p-4 h-screen flex items-center justify-center">
+        <SignUp />
+      </div>
     </>
   );
 }
