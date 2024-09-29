@@ -20,6 +20,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     await signup(input);
   };
   return (

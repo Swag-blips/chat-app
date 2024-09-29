@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const useSignup = () => {
   const [loading, setLoading] = useState(false);
@@ -57,6 +57,7 @@ function handleInputErrors({
 }) {
   if (!fullName || !username || !password || !confirmPassword || !gender) {
     toast.error("Please fill in all fields");
+
     return false;
   }
   if (password !== confirmPassword) {
