@@ -19,7 +19,7 @@ const Messages = () => {
         messages.length > 0 &&
         messages.map((message) => (
           <div ref={lastMessageRef} key={message.id}>
-            <Message message={message} />
+            <Message message={message} key={message.id} />
           </div>
         ))}
       {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
